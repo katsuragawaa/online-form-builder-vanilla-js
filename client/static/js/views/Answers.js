@@ -4,9 +4,12 @@ export default class extends AbstractView {
   constructor(params) {
     super(params);
     this.setPageTitle("Respostas");
+    console.log(this.params)
   }
 
-  async render() {}
+  async render() {
+    
+  }
 
   async getHtml() {
     return `
