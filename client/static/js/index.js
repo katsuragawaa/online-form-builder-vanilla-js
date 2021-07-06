@@ -1,15 +1,15 @@
-import Answers from "./views/Answers.js";
-import Home from "./views/Home.js";
-import New from "./views/New.js";
-import NotFound from "./views/NotFound.js";
+import Answers from './views/Answers.js';
+import Home from './views/Home.js';
+import New from './views/New.js';
+import NotFound from './views/NotFound.js';
 
-const pathToRegex = (path) =>
-  new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
+const pathToRegex = path =>
+  new RegExp('^' + path.replace(/\//g, '\\/').replace(/:\w+/g, '(.+)') + '$');
 
-const getParams = (match) => {
+const getParams = match => {
   const values = match.result.slice(1);
   const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map(
-    (result) => result[1]
+    result => result[1]
   );
 
   return Object.fromEntries(
@@ -19,21 +19,21 @@ const getParams = (match) => {
   );
 };
 
-const navigateTo = (url) => {
+const navigateTo = url => {
   history.pushState(null, null, url);
   router();
 };
 
 const router = async () => {
   const routes = [
-    { path: "/wrong-path", view: NotFound },
-    { path: "/", view: Home },
-    { path: "/new", view: New },
-    { path: "/forms/:id", view: Answers },
+    { path: '/wrong-path', view: NotFound },
+    { path: '/', view: Home },
+    { path: '/new', view: New },
+    { path: '/forms/:id', view: Answers },
   ];
 
   // Test each route for potential match
-  const potentialMatches = routes.map((route) => {
+  const potentialMatches = routes.map(route => {
     return {
       route: route,
       result: location.pathname.match(pathToRegex(route.path)),
@@ -41,7 +41,7 @@ const router = async () => {
   });
 
   let match = potentialMatches.find(
-    (potentialMatch) => potentialMatch.result !== null
+    potentialMatch => potentialMatch.result !== null
   );
 
   if (!match) {
@@ -53,15 +53,15 @@ const router = async () => {
 
   const view = new match.route.view(getParams(match));
 
-  document.getElementById("root").innerHTML = await view.getHtml();
+  document.getElementById('root').innerHTML = await view.getHtml();
   await view.render();
 };
 
-window.addEventListener("popstate", router);
+window.addEventListener('popstate', router);
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.body.addEventListener("click", (e) => {
-    if (e.target.matches("[data-link]")) {
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.addEventListener('click', e => {
+    if (e.target.matches('[data-link]')) {
       e.preventDefault();
       navigateTo(e.target.href);
     }
