@@ -9,7 +9,7 @@ export default class extends AbstractView {
 
   async render() {
     this.button = document.getElementById("new-form");
-    this.button.href = "/forms/answer";
+    this.button.href = "/new";
 
     this.createFormsList();
   }

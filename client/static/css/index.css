@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 header {
@@ -24,7 +24,7 @@ a {
 }
 
 .btn {
-	display: inline-block;
+  display: inline-block;
   padding: 10px 20px;
   border: 0;
   border-radius: 5px;
@@ -66,27 +66,42 @@ a.answer {
   margin-right: 10px;
 }
 
-
 /* página de respostas */
 .question-container {
-	display: flex;
-	justify-content:space-between;
-	align-items:center;
-	margin-top: 20px;
-	padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding: 30px;
 
-	background: #fff;
-	border-radius: 10px;
+  background: #fff;
+  border-radius: 10px;
 }
 
 .question-container .question {
-	flex: 1;	
+  flex: 1;
 }
 
 .question-container .answer {
-	flex: 1;
+  flex: 1;
 }
 
 .return a {
-	margin-top: 50px;
+  margin-top: 50px;
 }
+
+/* página de criação de questionário */
+#form-creation input {
+  border: 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);
+  padding: 20px;
+  width: 60%;
+}
+
+.form-title {
+  width: 100% !important;
+  font-size: 32px;
+}
+
