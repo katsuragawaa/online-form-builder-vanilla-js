@@ -73,9 +73,5 @@ app.get('/*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'client', 'index.html'));
 });
 
-app.get('/forms/*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client', 'index.html'));
-});
-
 PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));

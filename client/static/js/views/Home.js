@@ -34,7 +34,7 @@ export default class extends AbstractView {
           this.answerButton.innerText = "Responder";
           this.answerButton.classList.add("btn");
           this.answerButton.classList.add("answer");
-          this.answerButton.href = `/forms/answer/${form.id}`;
+          this.answerButton.href = `/answer/${form.id}`;
 
           this.seeAnswersButton = document.createElement("a");
           this.seeAnswersButton.innerText = "Ver respostas";

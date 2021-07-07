@@ -1,4 +1,5 @@
-import Answers from './views/Answers.js';
+import CheckAnswers from './views/CheckAnswers.js';
+import Answer from './views/Answer.js';
 import Home from './views/Home.js';
 import New from './views/New.js';
 import NotFound from './views/NotFound.js';
@@ -29,7 +30,8 @@ const router = async () => {
     { path: '/wrong-path', view: NotFound },
     { path: '/', view: Home },
     { path: '/new', view: New },
-    { path: '/forms/:id', view: Answers },
+    { path: '/forms/:id', view: CheckAnswers },
+    { path: '/answer/:id', view: Answer },
   ];
 
   // Test each route for potential match
