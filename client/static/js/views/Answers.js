@@ -18,13 +18,12 @@ export default class extends AbstractView {
         console.log(form);
         this.h1 = document.createElement('h1');
         this.h1.innerText = form.title;
-				this.container.append(this.h1);
-				
-				
+        this.container.append(this.h1);
+
         form.questions.map(q => {
-					this.questionContainer = document.createElement('div');
-					this.questionContainer.classList.add("question-container")
-					this.container.append(this.questionContainer);
+          this.questionContainer = document.createElement('div');
+          this.questionContainer.classList.add('question-container');
+          this.container.append(this.questionContainer);
 
           this.questionDiv = document.createElement('div');
           this.questionDiv.classList.add('question');
@@ -33,7 +32,11 @@ export default class extends AbstractView {
 
           this.answerDiv = document.createElement('div');
           this.answerDiv.classList.add('answer');
-          this.answerDiv.innerText = q.answer;
+          if (q.answer) {
+            this.answerDiv.innerText = q.answer;
+          } else {
+            this.answerDiv.innerText = '';
+          }
           this.questionContainer.append(this.answerDiv);
         });
       });

@@ -37,6 +37,7 @@ const forms = [
   },
 ];
 
+app.use(express.json());
 app.use('/static', express.static(path.resolve(__dirname, 'client', 'static')));
 
 app.get('/api/forms', (req, res) => {
@@ -47,6 +48,25 @@ app.get('/api/forms/:id', (req, res) => {
   const id = Number(req.params.id);
   const form = forms.find(form => form.id === id);
   res.json(form);
+});
+
+app.post('/api/forms', (req, res) => {
+  const question = req.body;
+  console.log(question);
+  const formObj = {
+    id: forms.length + 1,
+    title: question[0],
+    questions: [],
+  };
+  question.shift();
+  question.map(q => {
+    formObj.questions.push({ question: q });
+  });
+  console.log(formObj);
+
+  forms.push(formObj);
+
+  res.json(question);
 });
 
 app.get('/*', (req, res) => {

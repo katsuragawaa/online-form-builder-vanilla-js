@@ -100,8 +100,15 @@ a.answer {
   width: 60%;
 }
 
-.form-title {
+#form-title {
   width: 100% !important;
   font-size: 32px;
 }
 
+.single-question {
+	margin-top: 20px;
+}
+
+.btn-container {
+	margin-top: 20px;
+}
