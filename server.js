@@ -62,7 +62,7 @@ app.post('/api/forms', (req, res) => {
   question.map(q => {
     formObj.questions.push({ question: q });
   });
-  console.log(formObj);
+  console.log('Add new question ' + formObj);
 
   forms.push(formObj);
 
